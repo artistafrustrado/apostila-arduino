@@ -8,19 +8,66 @@ For this lab you'll need:
 
 Solderless breadboard
 
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.3]{img/toneout/breadboard.png}
+ \caption{breadboard}
+ \label{breadboard}
+\end{figure}
+
+
 22-AWG hookup wire
 
-Arduino Microcontroller 
-module
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.3]{img/toneout/hookup_wire.png}
+ \caption{hookup wire}
+ \label{hookup wire}
+\end{figure}
+
+Arduino Microcontroller module
+
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.3]{img/toneout/arduino.png}
+ \caption{arduino}
+ \label{arduino}
+\end{figure}
 
 
 1Kohm resistors
 
-photocell
-(or a different
-form of variable resistor)
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.3]{img/toneout/resistors.jpg}
+ \caption{resistors}
+ \label{resistors}
+\end{figure}
+
+photocell (or a different form of variable resistor)
  
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.3]{img/toneout/photocell.png}
+ \caption{photocell}
+ \label{photocell}
+\end{figure}
+
 8-ohm speaker
+
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.15]{img/toneout/speaker.png}
+ \caption{speaker}
+ \label{speaker}
+\end{figure}
+
 
 \section{Why not use AnalogOut()?}
 
@@ -30,10 +77,32 @@ When you use analogOut() to create pulsewidth modulation (PWM) on an output pin,
 
 Connect power and ground on the breadboard to power and ground from the microcontroller. On the Arduino module, use the 5V and any of the ground connections:
 
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.1]{img/toneout/arduino_breadboard_power.jpg}
+ \caption{arduino breadboard power}
+ \label{arduino breadboard power}
+\end{figure}
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.3]{img/toneout/toneKeyboard_schem.png}
+ \caption{toneKeyboard schem}
+ \label{toneKeyboard schem}
+\end{figure}
+
 
 \section{Connect the sensors and the speaker}
 
 Connect two photoresistors to analog pin 0 in a voltage divider circuit as shown below. The 8-ohm speaker connects to pin 8 of the Arduino. You can use any digital I/O pin if you don't like 8. The other end of the speaker connects to ground.
+
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.1]{img/toneout/photocell_bb.jpg}
+ \caption{photocell bb}
+ \label{photocell bb}
+\end{figure}
 
 
 NOTE: this sensor circuit is not the normal way of connecting an analog input. There is no fixed resistor. The two photocells act as a voltage divider together, ao you can change the value of the analog in by covering either one. if you are using variable resistors that can both go to 0 ohms, you should connect a fixed resistor in series from the junction of the two resistors to the input, to avoid a short.
@@ -55,7 +124,7 @@ Note the range that the sensors give you by alternately covering them up and giv
 
 The sketch below takes input from the photocells and uses it to generate tones on the speaker. Upload it to your Arduino, and see the effect.
 
-\begin{verbatim}
+\begin{lstlisting}[language=C]
  /*
    Theremin
   
@@ -85,12 +154,12 @@ The sketch below takes input from the photocells and uses it to generate tones o
    // change the pitch, play for 10 ms:
    tone(8, pitch, 10);
  }
-\end{verbatim}
+\end{lstlisting}
 
 \section{A more complex example}
 
 The pitches.h file includes constants that give you the pitches for a standard western scale. Here's an example that uses them to play a simple melody:
-\begin{verbatim}
+\begin{lstlisting}[language=C]
  /*
    Melody
   
@@ -132,13 +201,13 @@ The pitches.h file includes constants that give you the pitches for a standard w
  void loop() {
    // no need to repeat the melody.
  }
-\end{verbatim}
+\end{lstlisting}
 Here's an example of how to use the note constants to make a simple keyboard:
 The circuit:
 
 
 This circuit uses the more traditional voltage divider circuit.
-\begin{verbatim}
+\begin{lstlisting}[language=C]
  /*
    keyboard
   
@@ -179,7 +248,7 @@ This circuit uses the more traditional voltage divider circuit.
    }
    Serial.println();
  }
-\end{verbatim}
+\end{lstlisting}
 
 \section{Make an Instrument}
 
@@ -195,3 +264,24 @@ Now that you've got the basics, make a musical instrument. Consider a few things
 \end{itemize}
 
 All of these questions, and many more, will affect what sensors you use, how you read them, and how you design both the physical interface and the software.
+
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=1]{img/toneout/photocell_schem.png}
+ \caption{photocell schem}
+ \label{photocell schem}
+\end{figure}
+
+
+
+
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[scale=0.1]{img/toneout/toneKeyboard_bb.jpg}
+ \caption{toneKeyboard bb}
+ \label{toneKeyboard bb}
+\end{figure}
+
+
+
